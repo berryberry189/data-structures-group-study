@@ -35,7 +35,6 @@ public class StackCalculator {
       else { // 피연산자일때
         calculateStack.push(Integer.parseInt(item));
       }
-
     }
     return calculateStack.pop();
   }
@@ -64,10 +63,7 @@ public class StackCalculator {
             while (!opstack.isEmpty() &&
                 (getOpPriority(item) >= getOpPriority(opstack.peek())) &&
                 !"(".equals(opstack.peek())) {
-              String pop = opstack.pop();
-              if(!"(".equals(pop)) {
-                postfix.add(pop);
-              }
+                postfix.add(opstack.pop());
             }
             opstack.push(item);
           }
@@ -77,6 +73,7 @@ public class StackCalculator {
         postfix.add(item);
       }
     }
+    // 연산자 스택에 남아있던 나머지 연산자들
     while (opstack.size() != 0) {
       String pop = opstack.pop();
       if(!"(".equals(pop)) {
