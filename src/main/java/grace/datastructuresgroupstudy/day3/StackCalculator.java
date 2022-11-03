@@ -3,28 +3,21 @@ package grace.datastructuresgroupstudy.day3;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
+import org.springframework.stereotype.Service;
 
+@Service
 public class StackCalculator {
 
-  static final List<String> operators = List.of("+", "-", "*", "/", "(", ")");
-
-  public static void main(String[] args) {
-    System.out.println("스택 계산기");
-    // 10
-    System.out.println(calculate("6 + ( 3 - 2 ) * 4"));
-    // 8
-    System.out.println(calculate("( 8 - 4 ) + ( 3 - 2 ) * 4"));
-    // 14
-    System.out.println(calculate("( 11 - 6 + 5 ) + ( 3 - 2 ) * 4"));
-
-  }
-
-  // postfix 계산
-  public static int calculate(String str) {
+  // 계산
+  public int calculate(String str) {
     List<String> postfix = getPostfix(str);
+    String postfixStr = postfix.stream()
+        .collect(Collectors.joining(""));
+    System.out.println("postfix = " + postfixStr);
     Stack<Integer> calculateStack = new Stack<>();
     for (String item : postfix) {
-      if (operators.contains(item))  { // 연산자일때
+      if (getOperators().contains(item))  { // 연산자일때
         int num2 = calculateStack.pop();
         int num1 = calculateStack.pop();
         Integer reuslt = calculateByOperator(num1, num2, item);
@@ -41,7 +34,7 @@ public class StackCalculator {
 
 
   // postfix 반환
-  public static List<String> getPostfix(String str) {
+  private List<String> getPostfix(String str) {
     // postfix 결과값 저장
     List<String> postfix = new ArrayList<>();
 
@@ -50,26 +43,41 @@ public class StackCalculator {
 
     String[] strArr = str.split(" ");
     for(String item : strArr) {
-      if(operators.contains(item)) {
+      if(getOperators().contains(item)) {
         // 연산자
-        if(opstack.isEmpty()) {
-          opstack.push(item);
-        } else {
-          if(item.equals(")")) {
-            while(!opstack.isEmpty() && !opstack.peek().equals("(")) {
-                postfix.add(opstack.pop());
+        if(item.equals(")")) {
+          // ")" 일때 - 첫번째 "(" 까지 stack 에서 빼기
+          while(!opstack.isEmpty()) {
+            if("(".equals(opstack.peek())) {
+              opstack.pop();
+              break;
+            } else {
+              postfix.add(opstack.pop());
             }
-          } else {
-            while (!opstack.isEmpty() &&
-                (getOpPriority(item) >= getOpPriority(opstack.peek())) &&
-                !"(".equals(opstack.peek())) {
+          }
+        }
+        else if(item.equals("(")) {
+          opstack.push(item);
+        }
+        else {
+          // 괄호가 아닐 때
+          if(opstack.isEmpty()) {
+            opstack.push(item);
+          }
+          else {
+            while (!opstack.isEmpty()) {
+              if(getOpPriority(item) < getOpPriority(opstack.peek())  && !"(".equals(opstack.peek())) {
                 postfix.add(opstack.pop());
+              } else {
+                break;
+              }
             }
             opstack.push(item);
           }
         }
+
       } else {
-        // 숫자
+        // 숫자 (피연산자)
         postfix.add(item);
       }
     }
@@ -85,7 +93,7 @@ public class StackCalculator {
 
 
   // 연산자 우선순위 반환
-  public static int getOpPriority(String operator){
+  private int getOpPriority(String operator){
     switch (operator) {
       case "*":
       case "/":
@@ -101,7 +109,7 @@ public class StackCalculator {
   }
 
   // 계산
-  public static Integer calculateByOperator(int num1, int num2, String operator) {
+  private Integer calculateByOperator(int num1, int num2, String operator) {
     switch (operator) {
       case "*":
         return num1 * num2;
@@ -113,6 +121,10 @@ public class StackCalculator {
         return num1 - num2;
     }
     return null;
+  }
+
+  private List<String> getOperators() {
+    return List.of("+", "-", "*", "/", "(", ")");
   }
 
 }
