@@ -4,28 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 import java.util.stream.Collectors;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class StackCalculator {
 
+  // 연산자
+  final List<String> operators = List.of("+", "-", "*", "/", "(", ")");
+
   // 계산
-  public int calculate(String str) {
-    List<String> postfix = getPostfix(str);
+  public int calculate(String input) {
+    List<String> postfix = getPostfix(input);
+
     String postfixStr = postfix.stream()
         .collect(Collectors.joining(""));
     System.out.println("postfix = " + postfixStr);
+
     Stack<Integer> calculateStack = new Stack<>();
     for (String item : postfix) {
-      if (getOperators().contains(item))  { // 연산자일때
+      if (operators.contains(item))  {
+        // 연산자일때
         int num2 = calculateStack.pop();
         int num1 = calculateStack.pop();
-        Integer reuslt = calculateByOperator(num1, num2, item);
-        if(reuslt != null) {
-          calculateStack.push(reuslt);
-        }
+        calculateStack.push(calculateByOperator(num1, num2, item));
       }
-      else { // 피연산자일때
+      else {
+        // 피연산자일때
         calculateStack.push(Integer.parseInt(item));
       }
     }
@@ -34,16 +38,16 @@ public class StackCalculator {
 
 
   // postfix 반환
-  private List<String> getPostfix(String str) {
+  private List<String> getPostfix(String input) {
     // postfix 결과값 저장
     List<String> postfix = new ArrayList<>();
 
     // 연산자 저장
     Stack<String> opstack = new Stack<>();
 
-    String[] strArr = str.split(" ");
-    for(String item : strArr) {
-      if(getOperators().contains(item)) {
+    String[] inputArr = input.split(" ");
+    for(String item : inputArr) {
+      if(operators.contains(item)) {
         // 연산자
         if(item.equals(")")) {
           // ")" 일때 - 첫번째 "(" 까지 stack 에서 빼기
@@ -123,8 +127,5 @@ public class StackCalculator {
     return null;
   }
 
-  private List<String> getOperators() {
-    return List.of("+", "-", "*", "/", "(", ")");
-  }
 
 }

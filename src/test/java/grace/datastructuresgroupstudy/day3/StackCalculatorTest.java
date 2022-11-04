@@ -21,6 +21,9 @@ class StackCalculatorTest {
     assertEquals(17, stackCalculator.calculate("2 + 3 * 5"));
     assertEquals(2, stackCalculator.calculate("( ( 2 + 4 ) - 5 ) * 2"));
     assertEquals(20, stackCalculator.calculate("( 2 + ( 3 + 5 ) ) * 2"));
+    assertEquals(12, stackCalculator.calculate("( ( 17 - 5 ) - ( 5 + 3 ) ) * 3"));
+    assertEquals(0, stackCalculator.calculate("( ( 8 + 2 ) * 2 ) / 4 - 5"));
+
 
   }
 }
