@@ -1,6 +1,6 @@
-package grace.datastructuresgroupstudy.day2;
+package grace.datastructuresgroupstudy.week2;
 
-import grace.datastructuresgroupstudy.day2.custom_interface.List;
+import grace.datastructuresgroupstudy.week2.custom_interface.List;
 import java.util.Arrays;
 
 // ArrayList를 구현

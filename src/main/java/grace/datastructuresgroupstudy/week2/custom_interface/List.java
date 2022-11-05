@@ -1,4 +1,4 @@
-package grace.datastructuresgroupstudy.day2.custom_interface;
+package grace.datastructuresgroupstudy.week2.custom_interface;
 
 public interface List <E> {
 

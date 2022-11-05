@@ -1,4 +1,4 @@
-package grace.datastructuresgroupstudy.day2;
+package grace.datastructuresgroupstudy.week2;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package grace.datastructuresgroupstudy.day3;
+package grace.datastructuresgroupstudy.week3;
 
 public interface Stack {
 

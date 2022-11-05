@@ -1,4 +1,4 @@
-package grace.datastructuresgroupstudy.day2.custom_interface;
+package grace.datastructuresgroupstudy.week2.custom_interface;
 
 // 큐 구현 인터페이스
 public interface Queue <E>{

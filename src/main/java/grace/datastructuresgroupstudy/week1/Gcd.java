@@ -1,4 +1,4 @@
-package grace.datastructuresgroupstudy.day1;
+package grace.datastructuresgroupstudy.week1;
 
 import java.io.BufferedReader;
 import java.io.IOException;

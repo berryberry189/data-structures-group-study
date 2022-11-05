@@ -1,6 +1,6 @@
-package grace.datastructuresgroupstudy.day2;
+package grace.datastructuresgroupstudy.week2;
 
-import grace.datastructuresgroupstudy.day2.custom_interface.Queue;
+import grace.datastructuresgroupstudy.week2.custom_interface.Queue;
 
 // 배열을 사용한 큐 구현
 public class ArrayQueue<E> implements Queue<E> {
