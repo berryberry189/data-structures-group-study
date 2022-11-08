@@ -3,7 +3,6 @@ package grace.datastructuresgroupstudy.week4;
 import org.springframework.stereotype.Component;
 
 // 한바향 링크드 리스트
-@Component
 public class SinglyLinkedList {
 
   private Node head;
@@ -19,7 +18,7 @@ public class SinglyLinkedList {
   public void pushBack(int key) {
     Node newNode = new Node(key);
     if(this.size == 0) {
-      head = newNode;
+      this.head = newNode;
     }
     else {
       Node tail = this.head;
@@ -53,19 +52,23 @@ public class SinglyLinkedList {
     if(this.size == 0) {
       throw new IllegalStateException("빈 리스트입니다.");
     }
+    if(this.size == 1) {
+      this.head = null;
+    } else {
+      Node tail = this.head;
+      Node prevTail = null;
 
-    Node tail = this.head;
-    Node beforeTail = null;
-
-    while (tail.getNext() != null) {
-      beforeTail = tail;
-      tail = tail.getNext();
+      while (tail.getNext() != null) {
+        prevTail = tail;
+        tail = tail.getNext();
+      }
+      prevTail.changeNext(null);
     }
-    beforeTail.changeNext(null);
     this.size--;
   }
 
   public Node search(int key) {
+    if(this.head == null) return null;
     Node searchNode = this.head;
     while(searchNode.getNext() != null) {
       if(key == searchNode.getKey()) {

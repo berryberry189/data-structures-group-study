@@ -14,7 +14,6 @@ class SinglyLinkedListTest {
   @DisplayName("헤드 노드 앞에 새로운 노드 삽입")
   @Test
   void pushFront() {
-
     //given
     SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
 
@@ -26,6 +25,7 @@ class SinglyLinkedListTest {
     //then
     assertThat(singlyLinkedList.size()).isEqualTo(3);
     assertThat(singlyLinkedList.search(4)).isNull();
+    assertThat(singlyLinkedList.search(1)).isNotNull();
 
   }
 
@@ -78,13 +78,20 @@ class SinglyLinkedListTest {
     singlyLinkedList.pushFront(2);
     singlyLinkedList.pushFront(1);
 
+    SinglyLinkedList singlyLinkedList2 = new SinglyLinkedList();
+    singlyLinkedList2.pushFront(1);
+
     //when
     singlyLinkedList.popBack();
+    singlyLinkedList2.popBack();
 
     //then
     assertThat(singlyLinkedList.size()).isEqualTo(2);
     assertThat(singlyLinkedList.search(3)).isNull();
     assertThat(singlyLinkedList.search(2)).isNotNull();
+
+    assertThat(singlyLinkedList2.size()).isEqualTo(0);
+    assertThat(singlyLinkedList2.search(1)).isNull();
 
   }
 }

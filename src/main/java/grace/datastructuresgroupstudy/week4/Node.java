@@ -1,6 +1,7 @@
 package grace.datastructuresgroupstudy.week4;
 
 public class Node {
+
   private final int key;
   private Node next;
 
