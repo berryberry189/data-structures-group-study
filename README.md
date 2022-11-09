@@ -15,5 +15,8 @@
 |2022.10.25|자료구조 큐|[요약](https://berryberry189.notion.site/179dd4879aaf433f8a10d789f86f5aee)|
 |2022.11.01|자료구조 스택|[요약](https://berryberry189.notion.site/9d14f3f4bb6b472e94572c3157442b84)|
 |2022.11.01|스택활용 계산기|[요약](https://berryberry189.notion.site/53a4f79eede04eb9bec3aeb44a7628f6)|
+|2022.11.08|연결리스트 소개|[요약](https://berryberry189.notion.site/093c3ce2b309456297b720573661dc3d)|
+|2022.11.08|한방향 연결리스트 삽입, 삭제|[요약](https://berryberry189.notion.site/734bb8ca6c864abf9a8d2102722c111f)|
+|2022.11.08|한방향 연결리스트 탐색|[요약](https://berryberry189.notion.site/7557ada482004d3fa0aed0c5e38432c1)|
 
 
