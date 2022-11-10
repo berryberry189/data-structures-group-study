@@ -12,8 +12,7 @@ public class DoublyLinkedList {
     this.size = 0;
   }
 
-  public void pushFront(int key) {
-    Node newNode = new Node(key);
+  public void pushFront(Node newNode) {
     if(size == 0) {
       this.head = newNode;
     } else {
@@ -26,7 +25,6 @@ public class DoublyLinkedList {
   }
 
   public void splice(Node a, Node b, Node x) {
-    //if(a == null || b == null || x == null)
 
     Node aPrev = a.getPrev();
     Node bNext = b.getNext();
@@ -44,8 +42,8 @@ public class DoublyLinkedList {
 
   }
 
-  public Integer[] toArray() {
-    Integer[] array = new Integer[size];
+  public String[] toArray() {
+    String[] array = new String[size];
     int idx = 0;
     for (Node x = head; x != null; x = x.getNext()) {
       array[idx++] = x.getKey();

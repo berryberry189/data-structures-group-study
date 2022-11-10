@@ -2,11 +2,11 @@ package grace.datastructuresgroupstudy.week5;
 
 public class Node {
 
-  private final int key;
+  private final String key;
   private Node prev;
   private Node next;
 
-  public Node(int key) {
+  public Node(String key) {
     this.key = key;
     this.prev = null;
     this.next = null;
@@ -20,7 +20,7 @@ public class Node {
     this.next = node;
   }
 
-  public int getKey() {
+  public String getKey() {
     return key;
   }
 
