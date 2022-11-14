@@ -15,6 +15,7 @@ public class DoublyLinkedList {
       nextNode.changePrev(newNode);
     } else {
       newNode.changeNext(this.head);
+      this.head.changePrev(newNode);
     }
     this.head.changeNext(newNode);
     this.size++;
