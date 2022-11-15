@@ -83,5 +83,19 @@ public class DoublyLinkedList {
     return array;
   }
 
+  // 탐색
+  public Node search(String key) {
+    Node searchNode = this.head;
+    if(searchNode.getNext() == null) throw new IllegalStateException("빈 리스트입니다.");
+    while (searchNode.getNext() != this.head) {
+      if(key.equals(searchNode.getKey())) {
+        return searchNode;
+      }
+      searchNode = searchNode.getNext();
+    }
+
+    return searchNode;
+  }
+
 
 }
