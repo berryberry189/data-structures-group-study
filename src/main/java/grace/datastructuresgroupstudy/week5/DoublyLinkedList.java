@@ -97,5 +97,15 @@ public class DoublyLinkedList {
     return searchNode;
   }
 
+  // 삭제
+  public void remove(Node removeNode) {
+    if(removeNode == null || removeNode.getKey() == null) {
+      return;
+    }
+    removeNode.getPrev().changeNext(removeNode.getNext());
+    removeNode.getNext().changePrev(removeNode.getPrev());
+    this.size--;
+  }
+
 
 }
