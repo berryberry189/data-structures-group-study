@@ -73,16 +73,6 @@ public class DoublyLinkedList {
     this.insertBefore(this.head, key);
   }
 
-  public String[] toArray() {
-    String[] array = new String[size];
-    Node x = head.getNext();
-    for(int i=0; i<size; i++) {
-      array[i] = x.getKey();
-      x = x.getNext();
-    }
-    return array;
-  }
-
   // 탐색
   public Node search(String key) {
     Node searchNode = this.head;
@@ -107,5 +97,25 @@ public class DoublyLinkedList {
     this.size--;
   }
 
+  public String[] toArray() {
+    int listSize = getSize();
+    String[] array = new String[getSize()];
+    Node x = head.getNext();
+    for(int i=0; i<listSize; i++) {
+      array[i] = x.getKey();
+      x = x.getNext();
+    }
+    return array;
+  }
+
+  public int getSize() {
+    int listSize = 0;
+    Node node = this.head.getNext();
+    while(node.getKey() != null) {
+      listSize++;
+      node = node.getNext();
+    }
+    return listSize;
+  }
 
 }
