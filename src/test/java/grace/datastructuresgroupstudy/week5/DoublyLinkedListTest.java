@@ -9,7 +9,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 class DoublyLinkedListTest {
 
   @DisplayName("헤드 노드 앞에 새로운 노드 삽입")
