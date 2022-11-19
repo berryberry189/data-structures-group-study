@@ -208,7 +208,6 @@ class DoublyLinkedListTest {
   }
 
   private String arrayToStr(String[] keyList) {
-    return Arrays.stream(keyList)
-        .collect(Collectors.joining("-"));
+    return String.join("-", keyList);
   }
 }
