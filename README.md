@@ -18,5 +18,8 @@
 |2022.11.08|연결리스트 소개|[요약](https://berryberry189.notion.site/093c3ce2b309456297b720573661dc3d)|
 |2022.11.08|한방향 연결리스트 삽입, 삭제|[요약](https://berryberry189.notion.site/734bb8ca6c864abf9a8d2102722c111f)|
 |2022.11.08|한방향 연결리스트 탐색|[요약](https://berryberry189.notion.site/7557ada482004d3fa0aed0c5e38432c1)|
+|2022.11.19|양방향 연결리스트 정의, splice 연산|[요약](https://berryberry189.notion.site/splice-2669321d7dcd47a0a3f94b6464e50c3b)|
+|2022.11.19|양방향 연결리스트 삽입, 삭제, 탐색|[요약](https://berryberry189.notion.site/2f6ea1e6b0164324a3e45e18cbf07579)|
+
 
 
