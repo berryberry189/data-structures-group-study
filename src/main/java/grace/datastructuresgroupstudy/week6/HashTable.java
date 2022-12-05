@@ -10,13 +10,11 @@ public class HashTable {
     table = new LinkedList[size];
   }
 
-  Long getHashCode(String key) {
+  public Long getHashCode(String key) {
     Long hashCode = 0L;
-
     for (char c : key.toCharArray()) {
       hashCode += (long) c;
     }
-
     return hashCode;
   }
 
@@ -24,7 +22,7 @@ public class HashTable {
     return (int) (hashCode % table.length);
   }
 
-  Node searchNode(int index, String key) {
+  public Node searchNode(int index, String key) {
     LinkedList<Node> indexedList = table[index];
 
     for (Node n : indexedList) {
