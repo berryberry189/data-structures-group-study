@@ -23,7 +23,10 @@
 |2022.11.29|해시테이블과 해시함수|[요약](https://berryberry189.notion.site/3a7b83c4848e4589a949fc9fbc2d176a)|
 |2022.11.29|해시테이블 open addressing (linear probing)|[요약](https://berryberry189.notion.site/open-addressing-linear-probing-1c13806bd7d8421a95aefa9a630a8719)|
 |2022.11.29|해시테이블 성능평가|[요약](https://berryberry189.notion.site/dd2041eba46b4593bb8a002834adc843)|
-
+|2022.12.06|트리구조 소개|[요약](https://berryberry189.notion.site/e048726c0adc4cc08c0ad69d581d6615)|
+|2022.12.06|힙 정의|[요약](https://berryberry189.notion.site/931b7d22ee294035affc0b3ed2200fe4)|
+|2022.12.06|힙 make_heap 연산|[요약](https://berryberry189.notion.site/make_heap-70a0589f704a41c8b2ec830c55f88e32)|
+|2022.12.06|힙 insert와 delete_max 연산|[요약](https://berryberry189.notion.site/insert-delete_max-9ef98c69d14042068c2f3c304bd9ef70)|
 
 
 
