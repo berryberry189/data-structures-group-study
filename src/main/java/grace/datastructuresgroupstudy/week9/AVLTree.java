@@ -38,6 +38,10 @@ public class AVLTree {
     return insertRotation(node, newValue);
   }
 
+  public Node delete(int value) {
+    return this.root = delete(root, value);
+  }
+
   // 삭제
   public Node delete(Node node, int value) {
 
