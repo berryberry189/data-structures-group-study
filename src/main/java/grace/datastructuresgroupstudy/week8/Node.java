@@ -41,4 +41,47 @@ public class Node {
   public Node getParent() {
     return parent;
   }
+
+  public void preOrder() {
+    System.out.print(value);
+    if (left != null) {
+      left.preOrder();
+    }
+    if (right != null) {
+      right.preOrder();
+    }
+    if (this == null) {
+      System.out.println("빈 노드입니다.");
+    }
+  }
+
+  public void inOrder(){
+    if (this != null) {
+      if (this.left != null) {
+        this.left.inOrder();
+      }
+      System.out.print(this.value);
+      if (this.right != null) {
+        this.right.inOrder();
+      }
+    } else {
+      System.out.println("빈 노드입니다.");
+    }
+  }
+
+  public void postOrder(){
+    if (this != null) {
+      if (this.left != null) {
+        this.left.postOrder();
+      }
+
+      if (this.right != null) {
+        this.right.postOrder();
+      }
+
+      System.out.print(this.value);
+    } else {
+      System.out.println("빈 노드입니다.");
+    }
+  }
 }

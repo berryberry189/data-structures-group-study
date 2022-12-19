@@ -1,9 +1,5 @@
 package grace.datastructuresgroupstudy.week8;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class BinarySearchTree {
 
   private Node root;
@@ -14,160 +10,124 @@ public class BinarySearchTree {
     this.size = 0;
   }
 
-  public Node insert(Integer value) {
-    Node newNode = new Node(value);
-    if(root == null) {
-      root = newNode;
-      return root;
-    }
-
-    Node parent = null;
-    Node current = root;
-
-    while(true) {
-      parent = current;
-      if(current.getValue() > value) {
-        current = parent.getLeft();
-        if(current == null) {
-          parent.changeLeft(newNode);
-          break;
-        }
-      } else {
-        current = parent.getRight();
-        if(current == null) {
-          parent.changeRight(newNode);
-          break;
-        }
-      }
-    }
-    newNode.changeParent(parent);
-
-    size ++;
-    return parent;
+  public int getSize() {
+    return size;
   }
 
-  public Node search(Integer value) {
-    if(root == null) return null;
+  public void iteratePreOrder(){
+    if (root != null) {
+      root.preOrder();
+    }
+  }
+
+  public void iterateInOrder(){
+    if (root != null) {
+      root.inOrder();
+    }
+  }
+
+  public void iteratePostOrder(){
+    if (root != null) {
+      root.postOrder();
+    }
+  }
+
+  // key값 노드가 있다면 해당노드를, 없다면 노드가 삽입될 부모노드 return
+  public Node findLocation(int key){
+    if (this.size == 0) {
+      return null;
+    }
     Node parent = null;
-    Node current = root;
-    while(current.getValue() != value){
-      if(current.getValue() == value) return current;
-      if(current.getValue() > value){  // 현재 값이 전달된 값보다 더 크다면
+    Node current = this.root;
+
+    while (current != null) {
+      if (current.getValue() == key) {
+        return current;
+      } else if (current.getValue() < key) { // 찾으려는 key값이 더 크면 오른쪽으로
         parent = current;
         current = current.getRight();
-      } else {
+      } else { // 찾으려는 key값이 더 작으면 왼쪽으로
         parent = current;
-        current = current.getRight();
+        current = current.getLeft();
       }
     }
     return parent;
   }
 
-  public Node remove(Integer value){
-    Node target = search(value);
-    Node parent = target.getParent();
-
-    // 부모 노드와 현재 target 노드의 관계 알아내기
-    boolean isLeft = target.equals(root) ? false : target.equals(parent.getLeft()) ? true : false;
-
-    Node replacement;
-    // 자식 노드가 없는 경우
-    if(target.getLeft() == null && target.getRight() == null){
-      target = null;
-
-      // 왼쪽 자식 노드만 있는 경우
-    } else if(target.getRight() == null){
-      replacement = target.getLeft();
-      if(target.equals(root)){  // root를 삭제한다면 root 정보를 바꿔준다.
-        root = replacement;
-      } else if(isLeft){
-        parent.changeLeft(replacement); // parent와의 관계를 통해 연결해준다.
-      } else {
-        parent.changeRight(replacement);
-      }
-      replacement.changeParent(parent);  // 대체된 노드의 parent도 변경한다.
-
-      // 우측 자식 노드만 있는 경우
-    } else if(target.getLeft() == null){
-      replacement = target.getRight();
-      if(target.equals(root)){  // root를 삭제한다면 root 정보를 바꿔준다.
-        root = replacement;
-      } else if(isLeft){
-        parent.changeLeft(replacement); // parent와의 관계를 통해 연결해준다.
-      } else {
-        parent.changeRight(replacement);
-      }
-      replacement.changeParent(parent);  // 대체된 노드의 parent도 변경한다.
-
-      // 양 쪽 자식 노드가 모두 있는 경우
+  public Node search(int key){
+    Node current = findLocation(key);
+    if (current != null && current.getValue() == key) {
+      return current;
     } else {
-      // 이번 코드 예시에선 좌측 서브 트리의 가장 큰 노드로 대체해보자.
-      Node leftSubTreeRoot = target.getLeft();
-      Node rightSubTreeRoot = target.getRight();
+      return null;
+    }
+  }
 
-      replacement = getSubTreeMax(leftSubTreeRoot);
-      replacement.getParent().changeRight(null);  // 대체 노드로 사용했으니 해당 자리는 null로 변경
+  public Node insert(int value){
+    Node parent = findLocation(value);
+    Node newNode = new Node(value);
 
-      // 대체된 후 모든 관계를 바꿔주어야 함.
-      if(target.equals(root)){
-        root = replacement;
-      } else if(isLeft){
-        parent.changeLeft(replacement);
-      } else {
-        parent.changeRight(replacement);
+    if (parent == null || parent.getValue() != value) {
+      if (parent == null) {
+        this.root = newNode;
+      } else  {
+        if (parent.getValue() >= value) {
+          parent.changeLeft(newNode);
+          newNode.changeParent(parent);
+        } else {
+          parent.changeRight(newNode);
+          newNode.changeParent(parent);
+        }
       }
-      replacement.changeLeft(leftSubTreeRoot);
-      replacement.changeRight(rightSubTreeRoot);
-      replacement.changeParent(parent);
+    } else {
+      System.out.println("key is already exist");
+      return parent;
     }
-    return target;
+    this.size += 1;
+    return newNode;
   }
 
-  public Node getSubTreeMax(Node start){
-    if(start == null){
-      throw new NullPointerException();
+  public void deleteNodeByMerging(int key){
+    Node searchNode = search(key);
+    Node leftNode = searchNode.getLeft();
+    Node rightNode = searchNode.getRight();
+    Node pt = searchNode.getParent();
+    Node replaceNode; // x자리를 대체할 노드
+    Node leftMaxNode; // 왼쪽 서브트리에서 최대값을 가지는 노드
+
+    // 왼쪽 서브트리가 존재하는 경우
+    if (leftNode != null) {
+      replaceNode = leftNode;
+      leftMaxNode = leftNode;
+      while (leftMaxNode.getRight() != null) {
+        leftMaxNode = leftMaxNode.getRight();
+      }
+
+      if (rightNode != null) {
+        // 왼쪽 서브트리의 최대값 노드를 b의 부모로 설정
+        rightNode.changeParent(leftMaxNode);
+        leftMaxNode.changeRight(rightNode);
+      }
+    } else { // 왼쪽 서브트리가 존재하지 않는다면, 오른쪽 서브트리로 대체
+      replaceNode = rightNode;
     }
-    Node current = start;
-    while(current.getRight() != null){
-      current = current.getRight();
+
+    // x가 루트노드인 경우
+    if (pt == null) {
+      this.root = replaceNode;
+      replaceNode.changeParent(null);
+    } else {
+      if (replaceNode != null) {
+        replaceNode.changeParent(pt);
+      }
+      if (pt.getValue() >= replaceNode.getValue()) {
+        pt.changeLeft(replaceNode);
+      } else {
+        pt.changeRight(replaceNode);
+      }
     }
-    return current;
+    this.size -= 1;
   }
 
-  public String toPreorderString() {
-    List<Integer> list = new ArrayList<>();
-    Node left = root.getLeft();
-    Node right = root.getRight();
-
-    list.add(root.getValue());
-
-    while (true) {
-      if(left == null) break;
-      list.addAll(subPreorder(left));
-      left = left.getLeft();
-    }
-
-    while (true) {
-      if(right == null) break;
-      list.addAll(subPreorder(right));
-      right = right.getLeft();
-    }
-
-    return list.stream()
-        .map(String::valueOf)
-        .collect(Collectors.joining("-"));
-  }
-
-  public List<Integer> subPreorder(Node node) {
-    List<Integer> list = new ArrayList<>();
-    list.add(node.getValue());
-    if(node.getLeft() != null) {
-      list.add(node.getLeft().getValue());
-    }
-    if(node.getRight() != null) {
-      list.add(node.getRight().getValue());
-    }
-    return list;
-  }
 
 }
