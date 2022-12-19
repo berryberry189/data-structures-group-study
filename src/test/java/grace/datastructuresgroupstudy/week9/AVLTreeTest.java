@@ -1,6 +1,8 @@
 package grace.datastructuresgroupstudy.week9;
 
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 
 class AVLTreeTest {
@@ -15,9 +17,10 @@ class AVLTreeTest {
     avlTree.insert(5);
 
     avlTree.traverse();
-    // 2-1-4-3-5
-    // 1-2-3-4-5
-    // 1-3-5-4-2
+
+    // 전위 : 2-1-4-3-5
+    // 중위 : 1-2-3-4-5
+    // 후위 : 1-3-5-4-2
 
   }
 }

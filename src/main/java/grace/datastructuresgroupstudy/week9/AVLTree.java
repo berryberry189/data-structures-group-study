@@ -4,13 +4,11 @@ public class AVLTree {
 
   private Node root;
 
-  public void insert(int value) {
-    /*Node node = findLocation(value);
-    Node insertNode = insert(node, value);
+  public Node getRoot() {
+    return root;
+  }
 
-    if(this.root == null) {
-      this.root = insertNode;
-    }*/
+  public void insert(int value) {
     this.root = insert(this.root, value);
   }
 
@@ -214,7 +212,7 @@ public class AVLTree {
 
   public int findHeight(Node node) {
     if(node == null) {
-      return -1;
+      return 0;
     }
     return node.getHeight();
   }
