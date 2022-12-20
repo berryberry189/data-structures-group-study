@@ -185,28 +185,6 @@ public class AVLTree {
   }
 
 
-  // key값 노드가 있다면 해당노드를, 없다면 노드가 삽입될 부모노드 return
-  public Node findLocation(int key){
-    if (this.root == null) {
-      return null;
-    }
-    Node parent = null;
-    Node current = this.root;
-
-    while (current != null) {
-      if (current.getValue() == key) {
-        return current;
-      } else if (current.getValue() < key) { // 찾으려는 key값이 더 크면 오른쪽으로
-        parent = current;
-        current = current.getRight();
-      } else { // 찾으려는 key값이 더 작으면 왼쪽으로
-        parent = current;
-        current = current.getLeft();
-      }
-    }
-    return parent;
-  }
-
   public int getBalance(Node node) {
     if(node == null) {
       return 0;
