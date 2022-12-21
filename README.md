@@ -27,6 +27,9 @@
 |2022.12.06|힙 정의|[요약](https://berryberry189.notion.site/931b7d22ee294035affc0b3ed2200fe4)|
 |2022.12.06|힙 make_heap 연산|[요약](https://berryberry189.notion.site/make_heap-70a0589f704a41c8b2ec830c55f88e32)|
 |2022.12.06|힙 insert와 delete_max 연산|[요약](https://berryberry189.notion.site/insert-delete_max-9ef98c69d14042068c2f3c304bd9ef70)|
+|2022.12.13|이진트리 정의와 순회|[요약](https://berryberry189.notion.site/fed39fd0bdb44749be889cfae99f7f75)|
+|2022.12.13|이진탐색트리 정의와 탐색, 삽입 연산|[요약](https://berryberry189.notion.site/a9273faf61534aeb8d866fd2a7be1693)|
+|2022.12.13|이진탐색트리 삭제 연산|[요약](https://berryberry189.notion.site/e64ac441387c489b9f35c0d34c196b7c)|
 
 
 
