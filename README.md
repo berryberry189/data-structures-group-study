@@ -30,6 +30,10 @@
 |2022.12.13|이진트리 정의와 순회|[요약](https://berryberry189.notion.site/fed39fd0bdb44749be889cfae99f7f75)|
 |2022.12.13|이진탐색트리 정의와 탐색, 삽입 연산|[요약](https://berryberry189.notion.site/a9273faf61534aeb8d866fd2a7be1693)|
 |2022.12.13|이진탐색트리 삭제 연산|[요약](https://berryberry189.notion.site/e64ac441387c489b9f35c0d34c196b7c)|
+|2022.12.20|균형이진탐색트리 정의와 회전|[요약](https://berryberry189.notion.site/a9f3d215a765449f973a795b4f925a42)|
+|2022.12.20|균형이진탐색트리 AVL 트리 정의|[요약](https://berryberry189.notion.site/AVL-4cafab26b6c6481890f28de3b7799d9f)|
+|2022.12.20|균형이진탐색트리 AVL 트리 삽입 연산|[요약](https://berryberry189.notion.site/AVL-2cbab36903b7410db2dd39851c9d554b)|
+|2022.12.20|균형이진탐색트리 AVL 트리 삭제 연산|[요약](https://berryberry189.notion.site/AVL-0d6e36e591b54143b9bebc25c0bf50b6)|
 
 
 
