@@ -4,9 +4,6 @@ public class AVLTree {
 
   private Node root;
 
-  public Node getRoot() {
-    return root;
-  }
 
   public void insert(int value) {
     this.root = insert(this.root, value);

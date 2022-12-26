@@ -6,7 +6,6 @@ public class Node {
   private int height;
   private Node left;
   private Node right;
-  //private Node parent;
 
   public Node(Integer value) {
     this.value = value;
@@ -25,18 +24,10 @@ public class Node {
     return right;
   }
 
-  /*public Node getParent() {
-    return parent;
-  }*/
-
   public int getHeight() {
     return height;
   }
 
-  /*public void changeParent(Node parent) {
-    this.parent = parent;
-  }
-*/
   public void changeLeft(Node left) {
     this.left = left;
   }
@@ -53,6 +44,7 @@ public class Node {
     this.value = value;
   }
 
+  // 전위
   public void preOrder() {
     if (this == null) {
       System.out.println("빈 노드입니다.");
@@ -66,6 +58,7 @@ public class Node {
     }
   }
 
+  // 중위
   public void inOrder(){
     if (this == null) {
       System.out.println("빈 노드입니다.");
@@ -80,6 +73,7 @@ public class Node {
 
   }
 
+  // 후위
   public void postOrder(){
     if (this == null) {
       System.out.println("빈 노드입니다.");
@@ -93,7 +87,6 @@ public class Node {
     System.out.print(this.value + "-");
 
   }
-
 
 
 }
