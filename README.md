@@ -37,6 +37,7 @@
 |2022.12.27|균형이진탐색트리 Red-Black 트리 정의|[요약](https://berryberry189.notion.site/Red-Black-2acfc89758c24a1fbf022167569306ad)|
 |2022.12.27|균형이진탐색트리 Red-Black 트리 삽입 연산|[요약](https://berryberry189.notion.site/Red-Black-240645ef13bb4595aa3a1f994b99abaf)|
 |2022.12.27|균형이진탐색트리 2-3-4 트리 정의|[요약](https://berryberry189.notion.site/2-3-4-a34848baa898472eb732397918af0e14)|
+|2023.01.03|union-find|[요약](https://berryberry189.notion.site/union-find-6f2014f70ba340049618f1b4c54b7e85)|
 
 
 
