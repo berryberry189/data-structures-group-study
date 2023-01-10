@@ -34,6 +34,16 @@
 |2022.12.20|균형이진탐색트리 AVL 트리 정의|[요약](https://berryberry189.notion.site/AVL-4cafab26b6c6481890f28de3b7799d9f)|
 |2022.12.20|균형이진탐색트리 AVL 트리 삽입 연산|[요약](https://berryberry189.notion.site/AVL-2cbab36903b7410db2dd39851c9d554b)|
 |2022.12.20|균형이진탐색트리 AVL 트리 삭제 연산|[요약](https://berryberry189.notion.site/AVL-0d6e36e591b54143b9bebc25c0bf50b6)|
+|2022.12.27|균형이진탐색트리 Red-Black 트리 정의|[요약](https://berryberry189.notion.site/Red-Black-2acfc89758c24a1fbf022167569306ad)|
+|2022.12.27|균형이진탐색트리 Red-Black 트리 삽입 연산|[요약](https://berryberry189.notion.site/Red-Black-240645ef13bb4595aa3a1f994b99abaf)|
+|2022.12.27|균형이진탐색트리 2-3-4 트리 정의|[요약](https://berryberry189.notion.site/2-3-4-a34848baa898472eb732397918af0e14)|
+|2023.01.03|union-find|[요약](https://berryberry189.notion.site/union-find-6f2014f70ba340049618f1b4c54b7e85)|
+|2023.01.10|그래프 Graph 정의와 표현법|[요약](https://berryberry189.notion.site/Graph-8b3e97feda3d495c8b5ce63f4898aa57)|
+|2023.01.10|그래프 기본 연산|[요약](https://berryberry189.notion.site/93663255404a43dcab38eab52a80e2e1)|
+|2023.01.10|그래프 DFS 1|[요약](https://berryberry189.notion.site/DFS-1-c6fd055adbaa4f35b2de7a8eba5c7bfb)|
+|2023.01.10|그래프 DFS 2|[요약](https://berryberry189.notion.site/DFS-2-f37813af842844eea962c82c95e96784)|
+
+
 
 
 
